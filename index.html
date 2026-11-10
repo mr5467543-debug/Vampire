@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d12">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23100d12'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='25' fill='%23c7777d'%3EV%3C/text%3E%3C/svg%3E">
+  <title>Crimson Veil — Rise of the Nightborn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header class="topbar">
+      <button class="brand" id="brandHome" aria-label="Return to the world">
+        <span class="brand-mark">✦</span><span><b>CRIMSON VEIL</b><small>RISE OF THE NIGHTBORN</small></span>
+      </button>
+      <div class="chapter"><span class="chapter-dot"></span> ACT I <i> / </i> THE AWAKENING</div>
+      <div class="top-actions"><span class="day-pill"><span>☾</span> NIGHTFALL <b id="clock">23:48</b></span><button class="icon-btn" id="soundToggle" title="Toggle ambience">♫</button><button class="icon-btn" id="menuToggle" title="Open journal">☰</button></div>
+    </header>
+
+    <main class="game-layout">
+      <aside class="left-rail">
+        <div class="portrait-wrap"><div class="portrait"><span class="portrait-sigil">V</span><div class="portrait-shade"></div></div><span class="online-dot"></span></div>
+        <div class="player-name">THE UNBURIED</div><div class="rank-label" id="rankLabel">LOW UNDEAD</div>
+        <div class="blood-track"><span style="width:36%" id="bloodFill"></span></div><div class="blood-caption"><span>BLOOD</span><b id="bloodText">36 / 100</b></div>
+        <div class="rail-divider"></div>
+        <div class="rail-heading">YOUR ASCENT</div><div class="rank-mini-list" id="rankList"></div>
+        <div class="rail-divider"></div>
+        <button class="rail-link active" data-panel="journal"><span>◈</span> Field Journal <i id="journalCount">1</i></button>
+        <button class="rail-link" data-panel="map"><span>⌖</span> The Veiled Lands</button>
+        <button class="rail-link" data-panel="codex"><span>▤</span> Blood Codex</button>
+        <div class="rail-bottom"><span class="save-dot"></span> YOUR STORY IS SAVED<br><small>ON THIS DEVICE</small></div>
+      </aside>
+
+      <section class="world-column">
+        <div class="world-stage" id="worldStage">
+          <div class="sky-glow"></div><div class="moon"></div><div class="mountains back"></div><div class="mountains front"></div>
+          <div class="fog fog-one"></div><div class="fog fog-two"></div>
+          <div class="temple"><div class="roof roof-top"></div><div class="temple-upper"></div><div class="roof roof-mid"></div><div class="temple-lower"></div><div class="temple-door"></div><div class="lantern l1"></div><div class="lantern l2"></div></div>
+          <div class="bamboo bamboo-left"><i></i><i></i><i></i><i></i><i></i></div><div class="bamboo bamboo-right"><i></i><i></i><i></i><i></i></div>
+          <div class="ridge"></div><div class="path-glow"></div>
+          <div class="world-label"><span class="eyebrow">MOONVEIL PROVINCE</span><h1 id="locationTitle">The Hollow Shrine</h1><p id="locationSubtitle">Where the dead remember how to breathe.</p></div>
+          <div class="weather-tag">✦ &nbsp; MIST RISING</div>
+          <div class="location-pins" id="locationPins"></div>
+          <div class="player-token" id="playerToken"><span>V</span><i></i></div>
+          <div class="stage-vignette"></div>
+          <div class="scene-controls"><button id="moveLeft" aria-label="Move left">‹</button><div class="move-hint">MOVE THROUGH THE VEIL</div><button id="moveRight" aria-label="Move right">›</button></div>
+          <button class="interact-prompt" id="interactPrompt"><span class="prompt-key">E</span><span><b>APPROACH</b><small id="nearbyName">Sister Yselle</small></span><span class="prompt-arrow">↗</span></button>
+          <div class="location-switcher" id="locationSwitcher"></div>
+        </div>
+        <div class="bottom-bar">
+          <div class="objective"><span class="objective-mark">✦</span><div><small>YOUR THREAD</small><b id="objectiveText">Find your place among the living dead</b></div><button id="objectiveNext" title="Track next objective">↗</button></div>
+          <div class="ability-row"><button class="ability" id="abilityDrain"><span>✧</span><b>Blood Drain</b><small>Q</small></button><button class="ability locked" id="abilityMist"><span>〰</span><b>Mist Form</b><small>LOCKED</small></button><button class="ability locked" id="abilityClaw"><span>⌁</span><b>Wall Crawl</b><small>UNLOCKED</small></button></div>
+          <div class="mobile-actions"><button id="mobileInteract">TALK</button><button id="mobileMove">MOVE</button></div>
+        </div>
+      </section>
+
+      <aside class="right-panel" id="rightPanel">
+        <div class="panel-tabs"><button class="tab active" data-tab="journal">JOURNAL</button><button class="tab" data-tab="people">PEOPLE</button><button class="tab" data-tab="world">WORLD</button></div>
+        <section class="tab-content" id="tab-journal">
+          <div class="section-title"><span>✧</span> THE NIGHT'S WORK</div><div class="quest-card main-quest"><div class="quest-type">MAIN STORY <span>CHAPTER 01</span></div><h2>The Hunger<br>Within</h2><p>A voice beneath the shrine calls you by a name you have never heard.</p><div class="quest-progress"><span></span></div><div class="quest-foot"><span>✦ &nbsp; 1 / 3 steps</span><button id="continueQuest">CONTINUE ↗</button></div></div>
+          <div class="side-head"><span>WHISPERS IN THE DARK</span><b id="sideCount">0 / 5</b></div><div class="quest-list" id="questList"></div>
+          <div class="secret-hint"><span>☽</span><p><b>A half-remembered verse</b><br>Some truths only surface when you ask the right question.</p></div>
+        </section>
+        <section class="tab-content hidden" id="tab-people"><div class="section-title"><span>♧</span> THREADS OF THE NIGHT</div><p class="panel-intro">Those whose paths have crossed yours. Every word leaves a trace.</p><div id="peopleList"></div></section>
+        <section class="tab-content hidden" id="tab-world"><div class="section-title"><span>⌖</span> THE VEILED LANDS</div><p class="panel-intro">Choose a place to travel. The night is wide, and every shadow has a story.</p><div id="worldList"></div><div class="day-cycle"><span>☼</span><div><b>THE LONG NIGHT</b><small>Daylight is 06:12 away</small></div><div class="cycle-bar"><i></i></div></div></section>
+      </aside>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="dialogueModal" aria-hidden="true"><section class="dialogue-card" role="dialog" aria-modal="true" aria-labelledby="npcName"><button class="modal-close" id="closeDialogue" aria-label="Close">×</button><div class="dialogue-person"><div class="npc-portrait" id="npcPortrait"><span>Y</span></div><div><span class="eyebrow" id="npcFaction">THE VEILED COURT</span><h2 id="npcName">Sister Yselle</h2><span class="npc-mood" id="npcMood">WATCHFUL · REMEMBERS YOUR WORDS</span></div><button class="voice-button" id="voiceButton" title="Read response aloud">♫</button></div><div class="dialogue-log" id="dialogueLog" aria-live="polite"></div><div class="conversation-memory" id="memoryLine">She studies the pulse in your throat.</div><form class="composer" id="chatForm"><button type="button" class="mic-button" id="micButton" title="Speak to this character">♩</button><input id="chatInput" autocomplete="off" placeholder="Say what you will…" aria-label="Your message"><button class="send-button" aria-label="Send message">➤</button></form><div class="composer-note">YOUR WORDS SHAPE WHAT THE NIGHT REMEMBERS</div></section></div>
+
+  <div class="modal-backdrop" id="storyModal" aria-hidden="true"><section class="story-card"><button class="modal-close" id="closeStory">×</button><span class="eyebrow" id="storyKicker">A THREAD TIGHTENS</span><h2 id="storyTitle">The Hunger Within</h2><div class="story-rule"></div><p id="storyBody"></p><button class="primary-button" id="storyContinue">STEP INTO THE NIGHT <span>↗</span></button></section></div>
+  <div class="toast" id="toast"></div>
+  <script src="game.js"></script>
+</body>
+</html>
